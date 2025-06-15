@@ -1,0 +1,119 @@
+﻿@page "/"
+
+<!-- Główny nagłówek strony głównej -->
+<h1>Mój homelab</h1>
+
+<!-- Sekcja: Historia -->
+<section>
+    <h2>Historia</h2>
+    <p>
+        Zabawę z homelabem zacząłem kilka lat temu gdy zacząłem pracę przy domach inteligentnych, systemach alarmowych, systemami monitoringu i sieciami komputerowymi.
+        Gdy robiliśmy sieć dla dużego callcenter w którym miało być ponad 100 stanowisk stwierdziłem że chcę się taką pobawić.
+    </p>
+</section>
+
+<!-- Sekcja: Pierwsze próby -->
+<section>
+    <h2>Pierwsze prawdziwe próby</h2>
+    <p>
+        Zaczęło się tak jak wiele ludzi mi polecało od terminala fujitsu futro s720, potem przeszedłem na s920.
+        Kupiłem 2 wersję bo się okazało że pierwsza miała tylko 2 rdzeniowy procesor a zależało mi na 4.
+    </p>
+</section>
+
+<!-- Sekcja: Software -->
+<section>
+    <h3>Software którego próbowałem</h3>
+    <ul>
+        <li>Proxmox</li>
+        <li>OpenMediaVault</li>
+        <li><a href="https://www.truenas.com/freenas">FreeNas</a></li>
+        <li>Windows Server 2019</li>
+        <li>Windows 10</li>
+        <li>Debian</li>
+        <li>Kali Linux</li>
+        <li><a href="https://www.truenas.com/truenas-core/">TrueNAS Core</a></li>
+        <li><a href="https://www.truenas.com/truenas-scale/">TrueNAS Scale</a></li>
+    </ul>
+</section>
+
+<!-- Sekcja: Hardware -->
+<section>
+    <h3>Hardware</h3>
+    <ul>
+        <li>Terminal Fujitsu Futro S720 z procesorem AMD GX-415GA</li>
+        <li>2X 8GB RAM DDR3</li>
+        <li>2X 1TB Seagate Ironwolf</li>
+        <li>Chińśka karta HBA z 4 portami SATA z interfejsem Mini Pcie</li>
+        <li>Zasilacz ATX Corsair RM550X</li>
+    </ul>
+</section>
+
+<!-- Sekcja: Co jest dzisiaj -->
+<section>
+    <h2>Co jest dzisiaj</h2>
+    <h3>Pierwszy poważny NAS</h3>
+    <p>
+        Po wielu próbach jest to pierwsza konstrukcja która chodzi non stop od dłuższego czasu i nie jest co chwila wyłączana do modyfikacji i napraw.
+    </p>
+    <p>
+        Działa on dłuższy czas, niestety ma wady. Główną jest duży pobór prądu oraz hałas. Jest to dość energooszczędna konstrukcja.
+        Pobiera ciągiem około 20w, wentylator w zasilaczu nigdy jeszcze się nie włączył lecz 5 dysków talerzowych po zaledwie 2TB i w RAID 5 to za dużo.
+        Dlatego kupiłem 3 dyski po 4TB aby uzyskać tą samą pojemność. Możliwe że dołożę kolejny, choć boli mnie sama myśl o tym że 2 tak duże i drogie dyski będą można powiedzieć nie używane.
+        Tym razem też kupiłem dyski WD Red zamiast Seagate Ironwolf ze względu na mniejszą awaryjność.
+    </p>
+</section>
+
+<!-- Sekcja: Hardware NAS -->
+<section>
+    <h3>Hardware NAS</h3>
+    <ul>
+        <li>Terminal Fujitsu Futro S920 z procesorem AMD GX-415GA</li>
+        <li>2X 8GB RAM DDR3</li>
+        <li>5X 2TB Seagate Ironwolf</li>
+        <li>Chińśka karta HBA z 4 portami SATA z interfejsem Mini Pcie</li>
+        <li>Zasilacz ATX Corsair RM550X</li>
+        <li>Obudowa na 5 dysków 3,5' Chieftec</li>
+    </ul>
+</section>
+
+<!-- Sekcja: Dodatkowe informacje -->
+<section>
+    <p>
+        Dlaczego nie podałem nazwy karty Pcie? Jest tak Chińska że nie ma nawet nazwy czy producenta.
+        Jedyny napis na niej oprócz oznaczonych miejsc na elementy dyskretne to Made In China.
+        Jak widać nie ma tu obudowy na samego Nasa, dlaczego? Bo jej jak na razie nie ma.
+        Muszę ją wykonać samemu ale jak na razie nie mam na to czasu.
+        Teraz będę się zajmować jego następcą.
+    </p>
+</section>
+
+<!-- Sekcja: Zdjęcie -->
+<section>
+    <img src="Zrzut ekranu (122).png" alt="Zdjęcie NAS" style="max-width:100%;margin:2rem 0;" />
+</section>
+
+<!-- Sekcja: Planowany NAS -->
+<section>
+    <h3>Planowany NAS</h3>
+    <p>
+        Jak na razie to tylko teoria ale bliska realizacji.
+        Na początku miał to być serwer oparty o płytę główną fujitsu D3402-b11 z procesorem i5-6500T i 32GB RAM DDR4 z zainstalowanym Proxmoxem.
+        Niestety nie jestem w stanie zainstalować na niej systemu innego niż windows, więc jak na razie odpada i czeka na lepsze czasy.
+        Zastąpi ją już dobrze przeze mnie znany terminal Fujitsu Futro S920 z procesorem AMD GX-415GA i 16GB RAM DDR3. Tym razem będą 4 dyski zamiast 5.
+        Będzie przez to cichszy ale niestety nie będzie pobierać mniej prądu ponieważ Hba to będzie karta oparta o Układ LSI 9211-8i.
+        W planach jest jeszcze cache na zwykłych dyskach ssd Sata gdybym chciał kiedyś zastosować sieć 2,5Gb.
+        Nie jest to jeszcze pewne, z tyłu głowy mam aby zrobić zamiast tego kolejnego małego NASa, oczywiście na tym samym terminalu oraz podobnym HBA.
+        Dlaczego? do obudowy idealnie zmieszczą się 4 dyski sata i jako że nie pobierają zbyt dużo prądu to nie będzie potrzebny osobny zasilacz.
+        Z zewnątrz będzie to zwykły cienki klient.
+    </p>
+</section>
+
+<!-- Sekcja: Planowany serwer -->
+<section>
+    <h3>Planowany serwer</h3>
+    <p>
+        Jeśli płyta główna Fujitsu wspomniana wcześniej nie będzie chciała współpracować z linuxem i FreeBSD to zostanie dla niej Windows Serwer.
+        I tak chciałem się nim pobawić choć chciałem to zrobić na wirtualnej maszynie w Proxmoxie.
+    </p>
+</section>

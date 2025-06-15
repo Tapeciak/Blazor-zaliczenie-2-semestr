@@ -1,0 +1,85 @@
+﻿@inherits LayoutComponentBase
+
+<div class="layout-root">
+    <!-- Nagłówek -->
+    <div class="fixed-header">
+        <!-- Logo jako link do zewnętrznej strony -->
+        <a href="https://ufo-relacje.pl/" target="_blank" rel="noopener">
+            <img src="logo.png" alt="Logo" class="header-logo" />
+        </a>
+        <span class="header-title">Przykładowa aplikacja Blazor</span>
+        @if (IsAboutPage)
+        {
+            <button class="header-btn" @onclick="NavigateToHome">Back</button>
+        }
+        else
+        {
+            <button class="header-btn" @onclick="NavigateToAbout">About</button>
+        }
+    </div>
+
+    <!-- Główna zawartość -->
+    <div class="main-content">
+        @Body
+    </div>
+
+    <!-- Stopka -->
+    <div>
+        <footer class="footer">
+            <p>To jest przykładowa stopka. Możesz tu dodać swoje dane kontaktowe lub linki.</p>
+        </footer>
+    </div>
+    <!-- Przycisk przewijania do góry -->
+    <div>
+        <button class="scroll-to-top" @onclick="ScrollToTop" style="display:@(showScrollButton ? "block" : "none")">
+            ↑
+        </button>
+    </div>
+</div>
+
+
+@code {
+    private bool showScrollButton = false;
+
+    // Wstrzyknięcie serwisów nawigacji i JS
+    [Inject] NavigationManager Navigation { get; set; } = default!;
+    [Inject] IJSRuntime JS { get; set; } = default!;
+
+    // Sprawdza, czy aktualna strona to About
+    private bool IsAboutPage => Navigation.Uri.EndsWith("/about", StringComparison.OrdinalIgnoreCase);
+
+    // Po pierwszym renderze rejestruje obsługę scrollowania w JS
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            JS.InvokeVoidAsync("registerScrollHandler", DotNetObjectReference.Create(this));
+        }
+    }
+
+    // Przejście do strony About
+    private void NavigateToAbout()
+    {
+        Navigation.NavigateTo("/about");
+    }
+
+    // Przejście do strony głównej
+    private void NavigateToHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+
+    // Wywoływane z JS przy scrollowaniu, pokazuje/ukrywa przycisk przewijania
+    [JSInvokable]
+    public void OnScroll(int scrollY)
+    {
+        showScrollButton = scrollY > 200;
+        StateHasChanged();
+    }
+
+    // Przewija stronę do góry (wywołuje JS)
+    private async Task ScrollToTop()
+    {
+        await JS.InvokeVoidAsync("scrollToTop");
+    }
+}
